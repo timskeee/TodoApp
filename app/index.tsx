@@ -28,6 +28,23 @@ const App: React.FC = () =>{
   return(
     
     <View style={[styles.container,{flex:1, padding:10}]}>
+      
+      <TouchableOpacity>
+        <Text>1</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity>
+        <Text>2</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity>
+        <Text>3</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity>
+        <Text>4</Text>
+      </TouchableOpacity>
+
       <Text style={styles.title}>Todo List</Text>
       <TextInput style={styles.textInput}
       placeholder="Add a new item..."
