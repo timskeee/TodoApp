@@ -7,7 +7,6 @@ interface Todo{
   id: string;
   text: string;
   completed: boolean;
-  updatedTasks:any;
 }
 
 const App: React.FC = () =>{
@@ -25,7 +24,7 @@ const App: React.FC = () =>{
     setTodos(todos.filter((todo) => todo.id !==id));
   };
   
-  const moveUp = (index) => {
+  const moveUp = (index:number) => {
     if (index>0){
     const updatedTasks = [...todos];
     [updatedTasks[index],updatedTasks[index-1]] = [updatedTasks[index-1],updatedTasks[index]];
@@ -33,7 +32,7 @@ const App: React.FC = () =>{
   }
   };
 
-  const moveDown = (index) => {
+  const moveDown = (index:number) => {
     if (index<todos.length -1){
       const updatedTasks = [...todos];
       [updatedTasks[index],updatedTasks[index+1]] = [updatedTasks[index+1],updatedTasks[index]];
