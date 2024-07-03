@@ -7,6 +7,7 @@ interface Todo{
   id: string;
   text: string;
   completed: boolean;
+  updatedTasks:any;
 }
 
 const App: React.FC = () =>{
@@ -23,7 +24,22 @@ const App: React.FC = () =>{
   const handleRemoveTodo = (id:string) => {
     setTodos(todos.filter((todo) => todo.id !==id));
   };
+  
+  const moveUp = (index) => {
+    if (index>0){
+    const updatedTasks = [...todos];
+    [updatedTasks[index],updatedTasks[index-1]] = [updatedTasks[index-1],updatedTasks[index]];
+    setTodos(updatedTasks);
+  }
+  };
 
+  const moveDown = (index) => {
+    if (index<todos.length -1){
+      const updatedTasks = [...todos];
+      [updatedTasks[index],updatedTasks[index+1]] = [updatedTasks[index+1],updatedTasks[index]];
+      setTodos(updatedTasks);
+    }
+  };
 
   return(
     
@@ -57,6 +73,13 @@ const App: React.FC = () =>{
         data={todos}
         renderItem={({item})=>(<TodoItem key={item.id} todo={item} onRemove={handleRemoveTodo}/>)}
         />
+      <TouchableOpacity onPress = {()=>{moveUp}}>
+          <Text>Up</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity onPress = {()=>{moveDown}}>
+          <Text>Down</Text>
+      </TouchableOpacity>
     </View>
   );
 };

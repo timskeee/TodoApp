@@ -1,5 +1,5 @@
 import react, { useState } from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, Touchable} from 'react-native';
 
 interface Todo{
     id:string;
@@ -25,6 +25,8 @@ const TodoItem : React.FC<TodoProps> = ({ todo, onRemove}) => {
         }
     };
 
+    
+
     return(
         <View style={[styles.taskcontainer,{flexDirection: 'row', justifyContent:'space-between',alignItems:'center', padding: 10} ]}>
             <Text style={{fontSize:15,flexDirection:'row',flex:1,textDecorationLine: completed ? 'line-through' : 'none'}}>{todo.text}</Text>
@@ -37,6 +39,8 @@ const TodoItem : React.FC<TodoProps> = ({ todo, onRemove}) => {
                     Cross Off
                 </Text>
             </TouchableOpacity>
+
+            
             
             <TouchableOpacity style={styles.deletebutton} onPress={handleDelete}>
                 <Text style={{color:'#ba1657'}}>Delete</Text>
